@@ -243,3 +243,248 @@ print(my_tuple[4]) # -> 'b'
 a, b = (1, 'apple')
 print(a) # -> 1
 print(b) # -> 'apple'
+
+# Conditional Structures
+#IF -> Everything indented below the if is executed if the condition is true, otherwise the program runs everything indented below the else.
+
+name = input( 'What is your name, dear stranger?')
+
+if len(name) > 0:
+    print("Hello", name, "!")
+else:
+    print("Hello, world!")
+
+# In Python, the boolean can take the values True and False. Now see how to declare booleans in Python:
+thisCourseIsGreat = True
+itsAuthorIsVeryHumble = False
+
+weather = "The weather is great!"
+weather.startswith("The weather") # -> True
+
+#Comparison Operators
+#==  equal to (two values are exactly the same)
+#!=  different from
+#<  less than
+#<=  less than or equal to
+#>  greater than
+#>=  greater than or equal to
+
+2 == 2 # -> True
+2 == 3 # -> False
+4 != 4 # -> False
+4!= 5 # -> True
+1 < 2 # -> True
+1 < 1 # -> False
+1 <= 1 # -> True
+3 > 4 # -> False
+5 > 4 # -> True
+5 >= 4 # -> True
+
+age=15
+
+if age>=21:
+    # Do something if age is greater than or equal to 21
+
+#Logical Operators
+#These operators will let you mix several Boolean values: specific Boolean values or expression results. There are three of them:
+
+#and : the AND operator.
+#The final result is true only when all expressions/values are true. For example: the result of  expression1 and expression2  will be True only if   expression1  is true AND expression2  is also true.
+
+#or : the OR operator.
+#The final result is true when at least one of the expressions/values is true. For example: the result of  expression1  or  expression2   will be at True if   expression1  is true OR expression2  is true.
+
+#not : the NOT operator.
+#This simply reverses the result of the given expression. For example, the result of   not(expression)  is true when   expression  is false.
+
+True and True # True
+True and False # False
+False and False # False
+True or False # True
+True or True # True
+False or False # False
+not(True) # False
+not(False) # True
+
+True and True and True # True
+True and True and False # False
+True or False or False # True
+False or False or False # False
+
+False or True and True # True
+not(False) and True or False # True
+
+(True and False) or True # True
+not(True and False or not(True)) # True
+
+#The  in  Operator
+# Another useful logical operator in Python is the   in  operator. This returns   True  when a value is found in a sequence (a string or a list);  False , if not.
+
+myList = [4, 2, 3, 2, 10]
+myStringList = ["a", "b", "c", "d"]
+myString = "The weather is really good today!"
+
+4 in myList # True
+0 in myList # False
+0 in myStringList # False
+"c" in myStringList # True
+"e" in myStringList # False
+"weather" in myString # True
+"really" in myString # True
+"rain?" in myString # False
+
+# We could use two nested if statements, but Python can link several conditions thanks to the keyword   elif  (contraction of else and if). Here is the general form:
+
+if condition1:
+    # instructions
+elif condition2:
+    # instructions
+else:
+    # instructions
+
+account = input("What is your account balance?")
+account = int(account) # transform the answer into an integer
+
+if account >= 10000:
+    print("Loan granted!")
+elif account >= 100 and account < 10000:
+    print("Loan in process of validation: under study")
+else:
+    print("Loan refused")
+
+#Loops 
+# For loops are used when you know in advance how many times an action will be repeated.
+
+myList = [7,2,4,10]
+
+for i in myList:
+    print(i)
+
+myString = "Items"
+
+for elt in myString:
+    print(elt)
+
+#To do this, you will use the   range(start, stop, step)  function, which will generate a collection of numbers according to three parameters:
+
+#start : the first number of the sequence.
+
+#stop  corresponds to the last number of the sequence, non-inclusive. The function will generate numbers from   start  to   stop-1.
+
+#step :  the step between each generated number.
+
+for i in range(0, 5, 1):
+    print(i) # -> print from 0 to 4 by steps of 1 (end - 1)
+
+for i in range(0, 5):
+    print(i) # -> prints from 0 to 4 also (default step is 1)
+
+for i in range(5):
+    print(i) # -> prints from 0 to 4 also (default start is 0)
+
+for i in range(0, 5, 2):
+    print(i) # -> print 0, 2 then 4
+
+#While 
+#the while loop will run as long as a condition is met. It is a kind of combination of a for loop and an if structure. The number of repetitions is not defined in advance, but via a condition to be fulfilled, as with an if. This is called a conditional loop.#
+
+while expressionLogic:
+    # block to execute
+
+numberTrees = 0
+
+while numberTrees < 10:
+    numberTrees += 1
+    print("I planted", numberTrees, "trees")
+
+print("I have a nice forest!")
+
+# Skip Some Statements Within Your Loop
+
+#For example, you want to repeat something 10 times, but skip (at least partially) when the value is 2 or 5. In Python, to force the start of the next loop iteration, use the keyword continue:
+
+for i in range(10):
+    # statements executed at each iteration
+    print(i)
+    if (i == 2) or (i == 5):
+        print("Special case")
+        continue
+    # statements not executed if i == 2 or 5
+    print("i != 2 & i != 5")
+
+# You can also decide to interrupt the loop, for example when looking for a particular item in a list. For this, you will use the   break  keyword.
+
+basket = ["apple", "orange", "banana"]
+
+for fruit in basket:
+    if fruit == "orange":
+        print("I have an orange!")
+        break
+
+a = ['foo', 'bar', 'baz', 'qux', 'corge']
+ 
+while a:
+   if len(a) < 3:
+      break
+   print(a.pop())
+print('Done.')
+
+# Module
+# A module is a Python file containing a set of predefined and operational functions, classes, and variables, which you can use as you wish in your code!
+# Here is a simplified example of a geometry module:
+'''
+Module geometry.py
+'''
+# variables
+pi = 3.14159265359
+phi = 1.6180
+
+# function that calculates the area
+def area(obj):
+    if type(obj) == square:
+        return obj.a**2
+
+# definitions of some classes
+class square(object):
+    def __init__(self,a):
+        self.a = a
+
+class triangle(object):
+    def __init__(self,a,b,c):
+        self.a = a
+        self.b = b
+        self.c = c
+
+# To import a module, you will need the  import  keyword. Here is an example with our geometry module:
+import geometry
+
+squa = geometry.square(4)
+tri = geometry.triangle(3, 6, 5)
+
+print(geometry.pi) # -> 3.14159265359
+
+geometry.area(squa) # -> 16
+
+# All items included in the geometry module can be used via the   moduleName.  notation, i.e.,  moduleName.function()  or   moduleName.variable. So, in the above example, we can use  geometry.area()  or  geometry.pi. If you don't want to rewrite geometry every time, you have two other options:
+
+import geometry as geo # we can now access geo.area() or geo.pi
+
+#Or, import specific functions that you can then use as native Python functions/variables (without the  .  notation):
+
+from geometry import pi
+print(pi) # -> 3.14159265359
+
+# A particular case of this last method is to import in one line all the objects contained in a module via the  *  notation.
+from geometry import *
+
+# A package (sometimes called a library) is a collection, a set of Python modules. As you have seen above, a module is a Python file. A package is simply a folder containing several Python files (.py) and an additional file named   __init__.py. This differentiates a package from an ordinary folder containing only Python codes.
+
+# Packages in Data Analysis 
+# Packages are ubiquitous in data analysis with Python. Indeed, many packages have been created specifically to address the issues that this subject involves. As you progress, you will be required to:
+# manipulate your data to facilitate analysis.
+# make various relevant graphs representing the behavior of your data.
+# use statistical methods.
+# run machine learning algorithms of varying complexity.
+
+import numpy as np
+np.sqrt(16) # -> 4.0
